@@ -1,0 +1,20 @@
+package protobuf;
+
+option java_package = "com.fdahms.scalabank.protobuf";
+option java_multiple_files = true;
+
+import "common_models.proto";
+
+message LoanApplicationRequest {
+  required Credentials credentials = 1;
+  required MonetaryAmount amount = 2;
+
+  optional bool ever_defaulted = 10;
+  optional bool using_money_for_fintech = 11;
+  optional bool promise_to_give_money_back = 12;
+}
+
+message LoanApplicationResponse {
+  required bool approved = 1;
+  optional Interest interest = 2;
+}

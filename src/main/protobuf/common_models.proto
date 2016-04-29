@@ -1,0 +1,18 @@
+package protobuf;
+
+option java_package = "com.fdahms.scalabank.protobuf";
+option java_multiple_files = true;
+
+
+message Credentials {
+  required uint64 account_id = 1;
+  required string password = 2;
+}
+
+message MonetaryAmount {
+  required int64 cent_amount = 1;
+}
+
+message Interest {
+  required int32 ppm = 1;
+}

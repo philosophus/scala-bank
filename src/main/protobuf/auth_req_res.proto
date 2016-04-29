@@ -1,0 +1,14 @@
+package protobuf;
+
+option java_package = "com.fdahms.scalabank.protobuf";
+option java_multiple_files = true;
+
+import "common_models.proto";
+
+message AuthRequest {
+  required Credentials credentials = 1;
+}
+
+message AuthResponse {
+  required bool authorized = 1;
+}
