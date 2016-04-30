@@ -10,11 +10,11 @@ import org.zeromq.ZContext
 
 object Client {
 
-  private lazy val lazyPirate = new LazyPirate(new ZContext, s"tcp://127.0.0.1:${LoanServer.port}")
+  private lazy val loanLP = new LazyPirate(new ZContext, s"tcp://127.0.0.1:${LoanServer.port}")
 
   private def performApplication(application: LoanApplicationRequest): Option[LoanApplicationResponse] = {
     val message = application.toByteArray
-    val response = lazyPirate.reqResp(message)
+    val response = loanLP.reqResp(message)
     response.map(LoanApplicationResponse.parseFrom)
   }
 
