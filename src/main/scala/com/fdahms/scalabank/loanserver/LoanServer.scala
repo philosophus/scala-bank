@@ -29,11 +29,11 @@ object LoanServer {
     // Check authorization first
     if (!checkAuth(loanRequest.getCredentials)) return None
 
-    // Now do risk
+    // Now do risk assessment
     if (loanRequest.getUsingMoneyForFintech) return Some(BigDecimal(0.02))
     if (loanRequest.getEverDefaulted) return None
     if (loanRequest.getAmount.getBigDecimal < BigDecimal(20000)
-        && loanRequest.getPromiseToGiveMoneyBack) return Some(BigDecimal(0.055))
+        && loanRequest.getPromiseToGiveMoneyBack) return Some(BigDecimal(0.095))
     None
   }
 
@@ -59,6 +59,4 @@ object LoanServer {
 
     }
   }
-
-
 }

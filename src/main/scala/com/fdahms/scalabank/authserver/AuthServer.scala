@@ -34,7 +34,7 @@ object AuthServer {
       }
 
       socket.send(responseBuilder.build.toByteArray)
-      println("Keeping the world save")
+      println("Keeping the world safe")
 
     }
   }
